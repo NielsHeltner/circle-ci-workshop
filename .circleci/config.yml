@@ -22,7 +22,9 @@ jobs:
           at: .
       - run:
           name: Packaging step
-          command: gradle jar
+          command: |
+          gradle jar
+          gradle jar.archivePath
       - store_artifacts:
           path: build/libs
           destination: build
