@@ -36,7 +36,7 @@ jobs:
       - attach_workspace:
           at: .
       - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
-      - run: docker build -t $DOCKER_USER/circle-ci-workshop:$CRICLE_SHA1 .
+      - run: docker build -t $DOCKER_USER/circle-ci-workshop:$CIRCLE_SHA1 .
       - run: docker push $DOCKER_USER/circle-ci-workshop:$CIRCLE_SHA1
 workflows:
   version: 2
