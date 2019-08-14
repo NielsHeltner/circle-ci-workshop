@@ -10,17 +10,28 @@ jobs:
           command: gradle test
       - store_test_results:
           path: build/test-results
+      - persist_to_workspace:
+          root: circle-ci-workshop
+          paths:
+            - .
   package:
     docker:
       - image: circleci/openjdk:8-jdk
     steps:
-      - checkout
+      - attach_workspace:
+          at: /tmp/workspace
       - run:
           name: Packaging step
-          command: gradle jar
+          command: | 
+            ls
+            gradle jar
       - store_artifacts:
           path: build/libs
           destination: build
+      - persist_to_workspace:
+          root: circle-ci-workshop
+          paths:
+            - build/libs
 workflows:
   version: 2
   test-and-package:
