@@ -33,7 +33,7 @@ jobs:
           path: build/libs
           destination: build
       - persist_to_workspace:
-          root: circle-ci-workshop
+          root: .
           paths:
             - build/libs
 workflows:
