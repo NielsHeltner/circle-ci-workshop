@@ -25,7 +25,6 @@ jobs:
       - run:
           name: Packaging step
           command: | 
-            ls
             pwd
             gradle jar
       - store_artifacts:
