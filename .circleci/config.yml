@@ -7,10 +7,7 @@ jobs:
       - checkout
       - run:
           name: Testing step
-          command: |
-            pwd
-            ls
-            gradle test
+          command: gradle test
       - store_test_results:
           path: build/test-results
       - persist_to_workspace:
@@ -25,10 +22,7 @@ jobs:
           at: .
       - run:
           name: Packaging step
-          command: | 
-            pwd
-            ls
-            gradle jar
+          command: gradle jar
       - store_artifacts:
           path: build/libs
           destination: build
