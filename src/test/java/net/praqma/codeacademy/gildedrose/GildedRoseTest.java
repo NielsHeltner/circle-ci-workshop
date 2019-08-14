@@ -14,6 +14,17 @@ public class GildedRoseTest {
         app.updateQuality();
         assertTrue("quality degrades twice as fast past sell date", app.items[0].quality == initQuality - 2);
     }
+
+    @Test
+    public void quality_never_negative() {
+        Item[] items = new Item[] { new Item("foo", 10, 0), new Item("bar", 10, -1) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        for (Item item : app.items) {
+            assertTrue("quality never negative", item.quality >= 0);
+        }
+    }
+
     @Test
     public void old_brie() {
         Item[] items = new Item[] { new Item("Aged Brie", 0, 1) };
