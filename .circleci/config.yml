@@ -8,6 +8,7 @@ jobs:
       - run:
           name: Testing step
           command: |
+            pwd
             ls
             gradle test
       - store_test_results:
@@ -26,6 +27,7 @@ jobs:
           name: Packaging step
           command: | 
             pwd
+            ls
             gradle jar
       - store_artifacts:
           path: build/libs
