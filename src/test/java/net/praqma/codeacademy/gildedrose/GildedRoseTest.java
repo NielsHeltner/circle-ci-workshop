@@ -9,7 +9,7 @@ public class GildedRoseTest {
     @Test
     public void quality_degrades_twice_as_fast_past_sell_date() {
         int initQuality = 10;
-        Item[] items = new Item[] { new Item("foo", 1, initQuality) };
+        Item[] items = new Item[] { new Item("foo", 0, initQuality) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertTrue("quality degrades twice as fast past sell date", app.items[0].quality == initQuality / 2);
