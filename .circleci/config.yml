@@ -35,11 +35,12 @@ jobs:
     steps:
       - attach_workspace:
           at: .
-      - run: pwd
-      - run: ls
-      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
-      - run: docker build -t $DOCKER_USER/circle-ci-workshop:$CIRCLE_SHA1 .
-      - run: docker push $DOCKER_USER/circle-ci-workshop:$CIRCLE_SHA1
+      - run:
+          name: Dockerizing step
+          command: |
+            docker login -u $DOCKER_USER -p $DOCKER_PASS
+            docker build -t $DOCKER_USER/circle-ci-workshop:$CIRCLE_SHA1 .
+            docker push $DOCKER_USER/circle-ci-workshop:$CIRCLE_SHA1
 workflows:
   version: 2
   test-and-package:
