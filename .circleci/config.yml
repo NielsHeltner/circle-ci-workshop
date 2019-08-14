@@ -14,5 +14,5 @@ jobs:
           name: Jar step
           command: gradle jar
       - store_artifacts:
-          path: /tmp/artifacts
+          path: build/libs
           destination: build
