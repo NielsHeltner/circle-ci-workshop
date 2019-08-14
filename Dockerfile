@@ -1,5 +1,5 @@
 FROM openjdk:8
 
-COPY src /
+COPY src /src/
 
 ENTRYPOINT ["ls"]
