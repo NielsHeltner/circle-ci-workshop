@@ -39,7 +39,7 @@ jobs:
           name: Dockerizing step
           command: |
             docker login -u $DOCKER_USER -p $DOCKER_PASS
-            docker build -t $DOCKER_USER/circle-ci-workshop:$CIRCLE_SHA1 .
+            docker build -t $DOCKER_USER/circle-ci-workshop:$CIRCLE_SHA1 -t $DOCKER_USER/circle-ci-workshop:latest .
             docker push $DOCKER_USER/circle-ci-workshop:$CIRCLE_SHA1
             docker push $DOCKER_USER/circle-ci-workshop:latest
 workflows:
