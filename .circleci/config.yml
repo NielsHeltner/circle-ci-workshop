@@ -24,7 +24,7 @@ jobs:
           name: Packaging step
           command: |
             gradle jar
-            gradle jar.archiveName
+            gradle archiveName
       - store_artifacts:
           path: build/libs
           destination: build
