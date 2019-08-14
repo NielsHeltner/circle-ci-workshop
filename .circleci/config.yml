@@ -43,7 +43,7 @@ jobs:
             docker push $DOCKER_USER/circle-ci-workshop:$CIRCLE_SHA1
 workflows:
   version: 2
-  test-and-package:
+  test-package-and-dockerize:
     jobs:
       - test
       - package:
