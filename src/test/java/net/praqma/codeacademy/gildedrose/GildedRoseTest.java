@@ -7,11 +7,12 @@ import org.junit.Test;
 public class GildedRoseTest {
 
     @Test
-    public void foo() {
-        Item[] items = new Item[] { new Item("foo", 0, 0) };
+    public void quality_degrades_twice_as_fast_past_sell_date() {
+        int initQuality = 10;
+        Item[] items = new Item[] { new Item("foo", 1, initQuality) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertEquals("foo", app.items[0].name);
+        assertTrue("quality degrades twice as fast past sell date", app.items[0].quality == initQuality / 2);
     }
     @Test
     public void old_brie() {
